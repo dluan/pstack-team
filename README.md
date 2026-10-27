@@ -61,6 +61,7 @@ Regras:
 - Crie ou reutilize as seções Engenharia, Produto e Arquivo. Coloque cada agente na seção certa e não mova agentes que já existiam.
 - Instale os packs packs/fluxo-dev e packs/manutencao-projeto nos agentes que precisam. Se a ferramenta exigir uma pasta dentro do workspace, copie o pack para o workspace antes de instalar.
 - O pstack e o cursor-team-kit não estão neste repositório. Instale-os da fonte original se o ambiente permitir; se não, pare e diga o que falta. Não copie conteúdo de terceiros sem licença.
+- A primeira tarefa de cada agente é ler o próprio papel e ficar pronto. Não execute trabalho de produto nessa instalação.
 - Configure ~/.agents/pstack-models.md somente se eu aprovar os modelos e os preços. Não assuma modelos pagos.
 - Ao terminar, verifique com list_agents, list_local_skills e read_agent: agentes, skills, seções e descrições. Faça um teste de fumaça e não rode tarefa de produto.
 
