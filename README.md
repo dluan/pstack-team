@@ -36,6 +36,37 @@ O pstack e o cursor-team-kit não são redistribuídos aqui. Instale-os das font
 7. **Adapte o projeto alvo**: `AGENTS.md`, `CONTEXT.md`, `docs/` e a skill `verify-<app>`. O time é transversal; o contexto do produto mora no repo do produto.
 8. **Rode a primeira tarefa pelo Planejador.** Ele classifica, abre o plano, passa pelo Design, delega o Build, chama o Testador e o Entregador. O merge espera pedido explícito do usuário.
 
+## Prompt de instalação (OpenBot)
+
+Copie o bloco abaixo para o agente **Gerente** do seu OpenBot. Ele precisa de acesso completo, ferramentas de agentes e skills, e leitura do repositório. Em um ChatGPT/Claude sem essas ferramentas, ele só escreve texto; não configura o painel.
+
+```text
+Você é o agente Gerente de um OpenBot. Instale o time descrito neste repositório no painel, sem apagar nada que já exista.
+
+Repositório: <URL_DO_REPO>
+Se você não tiver o repositório local, clone ou leia os arquivos por essa URL.
+
+Antes de criar qualquer coisa:
+1. Leia README.md, PLANO.md, MAPA.md, WORKFLOW.md e todos os arquivos de roles/.
+2. Liste o estado atual: agentes, seções, skills instaladas e rotinas.
+3. Liste o que você vai criar ou alterar e espere meu "sim". Não crie nada antes da confirmação.
+
+Regras:
+- Não apague agente, seção, skill, rotina ou memória que você não criou.
+- Não faça merge, deploy, force-push nem altere repositório de produto.
+- Não invente modelo, chave, caminho ou ferramenta. Se faltar algo, pare e diga o que falta.
+- Use o texto de roles/<arquivo>.md como instrução do agente. Se exceder o limite de tamanho, preserve as regras e corte exemplos, não as proibições.
+- Crie os cinco agentes persistentes: Planejador, Testador, Entregador, Zelador e Produto.
+- Build, Arquiteto, Revisor independente e Comment Sicko são subagentes. Não crie agentes persistentes para eles; use os briefs em roles/.
+- Crie ou reutilize as seções Engenharia, Produto e Arquivo. Coloque cada agente na seção certa e não mova agentes que já existiam.
+- Instale os packs packs/fluxo-dev e packs/manutencao-projeto nos agentes que precisam. Se a ferramenta exigir uma pasta dentro do workspace, copie o pack para o workspace antes de instalar.
+- O pstack e o cursor-team-kit não estão neste repositório. Instale-os da fonte original se o ambiente permitir; se não, pare e diga o que falta. Não copie conteúdo de terceiros sem licença.
+- Configure ~/.agents/pstack-models.md somente se eu aprovar os modelos e os preços. Não assuma modelos pagos.
+- Ao terminar, verifique com list_agents, list_local_skills e read_agent: agentes, skills, seções e descrições. Faça um teste de fumaça e não rode tarefa de produto.
+
+Comece listando o estado atual e o plano. Espere meu "sim".
+```
+
 ## O ciclo
 
 ```mermaid
