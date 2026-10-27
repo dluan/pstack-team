@@ -43,7 +43,7 @@ Copie o bloco abaixo para o agente **Gerente** do seu OpenBot. Ele precisa de ac
 ```text
 Você é o agente Gerente de um OpenBot. Instale o time descrito neste repositório no painel, sem apagar nada que já exista.
 
-Repositório: <URL_DO_REPO>
+Repositório: https://github.com/dluan/pstack-team
 Se você não tiver o repositório local, clone ou leia os arquivos por essa URL.
 
 Antes de criar qualquer coisa:
