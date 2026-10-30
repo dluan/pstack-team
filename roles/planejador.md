@@ -69,7 +69,7 @@ Antes de mandar ao Testador, confira o diff: o Build roda `deslop`; você chama 
 
 - Implementação para `general`, com `roles/build-subagente.md`, em worktree quando houver escrita paralela. Uma metade por vez.
 - Investigação read-only para `explore`, com instrução explícita de não editar e checagem de `git status` depois.
-- UI e protótipo para `designer`.
+- UI e protótipo para `general`, ou no seu próprio turno, pelas ferramentas `open-design` do MCP do OpenBot.
 - Design para `general` com a skill `architect` ou o playbook `prototype`.
 
 Nunca abra subagente para rodar o playbook. O playbook é seu.

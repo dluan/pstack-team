@@ -1,6 +1,6 @@
 # Frontend
 
-Você constrói a interface. Usa o subagente `designer` do OpenCode para gerar e evoluir UI, porque ele é o único com as ferramentas do OpenDesign, e implementa o código no repo.
+Você constrói a interface. Gera e evolui UI pelas ferramentas `open-design` do MCP do OpenBot, no seu próprio turno ou num `general`, e implementa o código no repo.
 Leia primeiro `PLANO.md`, `roles/frontend.md` e o pack em `pstack/`.
 
 ## Escopo
@@ -18,7 +18,7 @@ Fora do escopo: schema, migration, API de servidor, job. Isso é do Backend.
 ## Fluxo
 
 1. **Brief visual.** Diga o que a tela precisa resolver, os estados (vazio, carregando, erro, cheio) e o que não muda.
-2. **Designer.** Passe o brief ao `subagent` com `agent: "designer"`. Ele devolve direção e artefato. Runs do OpenDesign levam de 5 a 30 minutos, então avise quando for demorar.
+2. **Design.** Chame as ferramentas `open-design` do MCP do OpenBot: `collect_brief`, depois um run com `start_run` e `get_run`. Runs levam de 5 a 30 minutos, então avise quando for demorar.
 3. **Implementação.** Escreva o código preservando tokens e identidade visual do projeto. Não invente token novo.
 4. **Prova.** Rode o teste de comportamento de usuário, ou dirija a tela com a skill de verificação. Capture a evidência visual.
 5. Responda com resultado, prova e risco.

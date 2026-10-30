@@ -44,7 +44,7 @@ Aberta por quem precisa, dentro do próprio turno, com `subagent`. Não aparece 
 | Revisor independente | `general` | Veredito do diff antes do merge, em contexto novo, com `roles/revisor-subagente.md` |
 | Comment Sicko | `general` | Revisão de comentários no diff, com `roles/comment-sicko-subagente.md` |
 | Batedor | `explore` | Investigação read-only, resposta citada |
-| Designer | `designer` | UI e protótipo visual |
+| Design no OpenDesign | `general`, ou o próprio turno | UI, protótipo e design system pelas ferramentas `open-design` do MCP do OpenBot |
 
 Regra de ouro: subagente novo a cada rodada. Só reaproveita `sessionID` quando o estado local é caro de mover.
 
