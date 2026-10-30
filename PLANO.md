@@ -14,7 +14,7 @@ Cada etapa tem entrada, artefato de saída e um portão. A etapa seguinte não c
 | --- | --- | --- | --- |
 | Plan | Planejador | `docs/pstack/plano-<slug>.md` com playbook, checklist, contrato e rota | o critério de pronto está escrito |
 | Design | Planejador, com subagente `architect` | tipos, assinaturas, fronteira de módulo e fora de escopo no plano | sem esse bloco, Build não começa |
-| Build | Subagente `general` do Planejador | código com teste vermelho antes e `deslop` no diff | build e suíte local verdes no worktree |
+| Build | Subagente de propósito geral do Planejador | código com teste vermelho antes e `deslop` no diff | build e suíte local verdes no worktree |
 | Test | Testador | PASS ou FAIL na superfície real, com evidência em disco | PASS com caminho de evidência |
 | Deploy | Entregador | PR revisável, CI, veredito independente | APPROVE e pedido explícito do usuário |
 | Maintain | Zelador | documento atualizado com carimbo de data e commit | documento cita `arquivo:linha` |
@@ -31,22 +31,22 @@ Cada etapa tem entrada, artefato de saída e um portão. A etapa seguinte não c
 | **Zelador** | Documentos vivos do projeto | Editar código, escolher qual lado está certo numa divergência |
 | **Produto** | Regra de produto e ADRs | Editar código, resolver conflito, fazer merge |
 
-O Build não é persistente: é um subagente `general` por metade, criado no turno e descartado no fim.
+O Build não é persistente: é um subagente por metade, criado no turno e descartado no fim.
 
 ## Camada descartável
 
-Aberta por quem precisa, dentro do próprio turno, com `subagent`. Não aparece na sidebar.
+Aberta por quem precisa, dentro do próprio turno, como subagente. Não aparece na sidebar.
 
-| Papel | `agent` | Quando |
+| Papel | Tipo de subagente | Quando |
 | --- | --- | --- |
-| Arquiteto | `general` | Portão de Design, modelagem de domínio, arena de protótipos |
-| Construtor de Build | `general` | Uma metade por vez, com `roles/build-subagente.md` |
-| Revisor independente | `general` | Veredito do diff antes do merge, em contexto novo, com `roles/revisor-subagente.md` |
-| Comment Sicko | `general` | Revisão de comentários no diff, com `roles/comment-sicko-subagente.md` |
-| Batedor | `explore` | Investigação read-only, resposta citada |
-| Design no OpenDesign | `general`, ou o próprio turno | UI, protótipo e design system pelas ferramentas `open-design` do MCP do OpenBot |
+| Arquiteto | propósito geral | Portão de Design, modelagem de domínio, arena de protótipos |
+| Construtor de Build | propósito geral | Uma metade por vez, com `roles/build-subagente.md` |
+| Revisor independente | propósito geral | Veredito do diff antes do merge, em contexto novo, com `roles/revisor-subagente.md` |
+| Comment Sicko | propósito geral | Revisão de comentários no diff, com `roles/comment-sicko-subagente.md` |
+| Batedor | somente-leitura | Investigação read-only, resposta citada |
+| Design no OpenDesign | propósito geral, ou o próprio turno | UI, protótipo e design system pelas ferramentas `open-design` do MCP do OpenBot |
 
-Regra de ouro: subagente novo a cada rodada. Só reaproveita `sessionID` quando o estado local é caro de mover.
+Regra de ouro: subagente novo a cada rodada. Só reaproveita o mesmo subagente quando o estado local é caro de mover, como checkout, processo vivo ou mudança não commitada.
 
 ## Fluxo
 
@@ -83,7 +83,7 @@ Antes de qualquer Build, o plano responde:
 - onde fica a fronteira, o que este trabalho não invade;
 - o que fica fora de escopo nesta rodada.
 
-Roda como `subagent` com `architect`. Quando houver duas formas defensáveis, rode `arena` para comparar. Se o pedido é trivial e o desenho é óbvio, escreva uma linha no plano dizendo por que o portão foi dispensado.
+Roda num subagente com a skill `architect`. Quando houver duas formas defensáveis, rode `arena` para comparar. Se o pedido é trivial e o desenho é óbvio, escreva uma linha no plano dizendo por que o portão foi dispensado.
 
 ## Profundidade do Plan
 

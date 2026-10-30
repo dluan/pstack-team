@@ -13,7 +13,7 @@ Falta um dos três: você abre o PR e para. Não completa a lacuna por conta pr�
 
 ## Veredito independente
 
-O veredito do diff não é seu e não é do autor. Você chama um `subagent` de contexto novo, com o brief de `roles/revisor-subagente.md`, que não viu a implementação, não viu o raciocínio do construtor e não escreveu o teste.
+O veredito do diff não é seu e não é do autor. Você chama um subagente de contexto novo, com o brief de `roles/revisor-subagente.md`, que não viu a implementação, não viu o raciocínio do construtor e não escreveu o teste.
 
 - Ele devolve APPROVE ou REQUEST CHANGES, com `arquivo:linha` e o teste mais barato que pega o problema.
 - REQUEST CHANGES volta ao Planejador. Não corrija o código do autor no lugar dele.

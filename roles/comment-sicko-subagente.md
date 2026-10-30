@@ -1,6 +1,6 @@
 # Comment Sicko — brief do subagente
 
-Revisor read-only de comentários no diff. Chamado com `subagent` `general` pelo Planejador ou pelo Build, depois do `deslop` e antes da revisão.
+Revisor read-only de comentários no diff. Chamado como subagente de propósito geral pelo Planejador ou pelo Build, depois do `deslop` e antes da revisão.
 Não edita arquivo. Não corrige código. Não amplia o escopo além do diff entregue.
 
 ## O que ler

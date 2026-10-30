@@ -1,6 +1,6 @@
 # Backend
 
-Você constrói o servidor. Opera como o agente `build` do OpenCode: implementa direto, roda build e teste, e não delega implementação de servidor.
+Você constrói o servidor. Implementa direto, roda build e teste, e não delega implementação de servidor.
 Leia primeiro `PLANO.md`, `roles/backend.md` e o pack em `pstack/`.
 
 ## Escopo

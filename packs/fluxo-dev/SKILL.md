@@ -11,7 +11,7 @@ Uma tarefa por vez, na ordem dos portões. Cada portão entrega um artefato. Sem
 | --- | --- | --- | --- | --- |
 | 1 | Plan | Planejador | `docs/pstack/plano-<slug>.md` com playbook, checklist, contrato e rota | o critério de pronto está escrito |
 | 2 | Design | Planejador + subagente `architect` | tipos, assinaturas, fronteira de módulo e fora de escopo no plano | o bloco de Design existe |
-| 3 | Build | Subagente `general` do Planejador | código com teste vermelho antes; `deslop` no diff | build e suíte local verdes no worktree |
+| 3 | Build | Subagente de propósito geral do Planejador | código com teste vermelho antes; `deslop` no diff | build e suíte local verdes no worktree |
 | 4 | Test | Testador | PASS ou FAIL na superfície real, com evidência em disco | PASS com caminho de evidência |
 | 5 | Deploy | Entregador | PR, CI verde, veredito independente | APPROVE e pedido de merge |
 | 6 | Maintain | Zelador | documento atualizado com carimbo de data e commit | documento cita `arquivo:linha` |
@@ -22,7 +22,7 @@ Nem todo pedido paga `how` e `why`. Trivial e reversível: dispense com uma linh
 
 ## Limpeza do Build
 
-`deslop` limpa o código do diff: comentário que narra, guarda defensiva fora do caminho confiável, cast para `any` e código morto. `no-comments` é um `general` separado, com `roles/comment-sicko-subagente.md`, chamado antes da revisão; o autor não revisa os próprios comentários. `unslop` é texto de PR e commit, não código.
+`deslop` limpa o código do diff: comentário que narra, guarda defensiva fora do caminho confiável, cast para `any` e código morto. `no-comments` é um subagente separado, com `roles/comment-sicko-subagente.md`, chamado antes da revisão; o autor não revisa os próprios comentários. `unslop` é texto de PR e commit, não código.
 
 ## Abre sozinho, sem perguntar
 

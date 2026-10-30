@@ -30,7 +30,7 @@ O pstack e o cursor-team-kit não são redistribuídos aqui. Instale-os das font
    - `packs/manutencao-projeto`
 
    No OpenBot, use a biblioteca de skills e instale nos agentes. Em outro ambiente, aponte o agente para o `SKILL.md` do pack. Nos papéis, `pstack/` significa a pasta do pack pstack instalado.
-4. **Crie os cinco agentes persistentes** com as descrições de `roles/`: Planejador, Testador, Entregador, Zelador e Produto. O Build não é agente persistente: é um subagente `general` com o brief `roles/build-subagente.md`.
+4. **Crie os cinco agentes persistentes** com as descrições de `roles/`: Planejador, Testador, Entregador, Zelador e Produto. O Build não é agente persistente: é um subagente de propósito geral com o brief `roles/build-subagente.md`.
 5. **Crie os subagentes de apoio** a partir dos briefs: revisor independente (`roles/revisor-subagente.md`) e Comment Sicko (`roles/comment-sicko-subagente.md`).
 6. **Configure o mapa de modelos** em `~/.agents/pstack-models.md`, se o seu ambiente permitir modelos por subagente. Sem isso, todos herdam o modelo do pai.
 7. **Adapte o projeto alvo**: `AGENTS.md`, `CONTEXT.md`, `docs/` e a skill `verify-<app>`. O time é transversal; o contexto do produto mora no repo do produto.

@@ -26,7 +26,7 @@ flowchart LR
   U[Pedido] --> PLA
 
   PLA --> DES["portão de Design<br/>subagente architect"]
-  DES -->|contrato escrito| BLD["Build<br/>subagente general"]
+  DES -->|contrato escrito| BLD["Build<br/>subagente de propósito geral"]
   BLD --> TES
   TES -->|"FAIL + repro"| PLA
   TES -->|"PASS + evidência"| ENT

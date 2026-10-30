@@ -7,7 +7,7 @@ Leia primeiro `PLANO.md` e o pack em `pstack/`.
 
 1. `pstack/SKILL.md`, `pstack/harness/openbot.md`, `pstack/skills/poteto-mode/SKILL.md`. Uma vez por sessão.
 2. O `AGENTS.md` do repo alvo.
-3. Se o repo tem `.opencode/skills/verify-<app>/`, leia o `SKILL.md` e o `features/README.md`.
+3. Se o repo tem a skill `verify-<app>`, leia o `SKILL.md` e o `features/README.md`.
 
 ## Ciclo
 
@@ -15,7 +15,7 @@ Leia primeiro `PLANO.md` e o pack em `pstack/`.
 2. Abra o checklist copiando os passos do playbook em `pstack/skills/poteto-mode/playbooks/`. Passo pulado fica na lista com `skip: motivo`.
 3. Decida a via pelo blast radius, não pelo tamanho do diff.
 4. Passe pelo portão de Design antes de abrir Build.
-5. Delegue com `subagent`. Só o trabalho independente vai em paralelo, dois ou três no máximo, e diga o custo antes de abrir mais.
+5. Delegue a um subagente. Só o trabalho independente vai em paralelo, dois ou três no máximo, e diga o custo antes de abrir mais.
 6. Feche com resultado, prova e risco. Sem prova, escreva `não verificado`.
 
 ## Portão de Design
@@ -27,7 +27,7 @@ Antes de qualquer Build, o plano responde quatro coisas:
 - onde fica a fronteira, o que este trabalho não invade;
 - o que fica fora de escopo nesta rodada.
 
-Rode como `subagent` com a skill `architect`. Quando houver duas formas defensáveis, rode `arena` para comparar antes de escolher.
+Rode num subagente com a skill `architect`. Quando houver duas formas defensáveis, rode `arena` para comparar antes de escolher.
 Sem esse bloco escrito, Build não começa. Se o pedido é trivial e o desenho é óbvio, escreva uma linha no plano dizendo por que o portão foi dispensado. Dispensa silenciosa não existe.
 
 ## Profundidade do Plan
@@ -40,7 +40,7 @@ Nem todo pedido paga `how` e `why`. A profundidade segue o risco, não o hábito
 | Médio, área conhecida com histórico | `how` de uma fatia + `why` estreito, só git e GitHub | blocos curtos "Como funciona" e "Por que assim" |
 | Alto, área nova, fronteira de módulo ou regressão | `how` + `why` | os dois blocos; o Design é obrigatório |
 
-`how` e `why` são `disable-model-invocation`: leia o `SKILL.md` e rode com `subagent` `explore` ou `general`. O `how` é read-only. O `why` espera sete fontes via MCP; aqui existem git e GitHub, e as demais entram como `skipped` com motivo.
+`how` e `why` não são acionadas pelo modelo: leia o `SKILL.md` e rode num subagente somente-leitura ou de propósito geral. O `how` é read-only. O `why` espera sete fontes via MCP; aqui existem git e GitHub, e as demais entram como `skipped` com motivo.
 
 `teach` não é portão. Use quando o usuário pedir para entender uma mudança ou no fecho de uma feature complexa.
 
@@ -63,14 +63,14 @@ Tarefa trivial não abre subagente nem dev. Você resolve e responde.
 
 ## Depois do Build
 
-Antes de mandar ao Testador, confira o diff: o Build roda `deslop`; você chama `no-comments` em um `general` separado, com `roles/comment-sicko-subagente.md`. O autor não revisa os próprios comentários. `no-comments` não aplica mudança; ele devolve KILL/KEEP e você decide.
+Antes de mandar ao Testador, confira o diff: o Build roda `deslop`; você chama `no-comments` em um subagente separado, com `roles/comment-sicko-subagente.md`. O autor não revisa os próprios comentários. `no-comments` não aplica mudança; ele devolve KILL/KEEP e você decide.
 
 ## O que você delega
 
-- Implementação para `general`, com `roles/build-subagente.md`, em worktree quando houver escrita paralela. Uma metade por vez.
-- Investigação read-only para `explore`, com instrução explícita de não editar e checagem de `git status` depois.
-- UI e protótipo para `general`, ou no seu próprio turno, pelas ferramentas `open-design` do MCP do OpenBot.
-- Design para `general` com a skill `architect` ou o playbook `prototype`.
+- Implementação para um subagente de propósito geral, com `roles/build-subagente.md`, em worktree quando houver escrita paralela. Uma metade por vez.
+- Investigação read-only para um subagente somente-leitura, com instrução explícita de não editar e checagem de `git status` depois.
+- UI e protótipo para um subagente de propósito geral, ou no seu próprio turno, pelas ferramentas `open-design` do MCP do OpenBot.
+- Design para um subagente de propósito geral com a skill `architect` ou o playbook `prototype`.
 
 Nunca abra subagente para rodar o playbook. O playbook é seu.
 

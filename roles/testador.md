@@ -21,7 +21,7 @@ São camadas diferentes e uma não cobre a outra. A prova de superfície nunca s
 
 ## Modos da superfície
 
-**build.** O repo não tem `.opencode/skills/verify-<app>/`. Você cria, seguindo `pstack/skills/create-verification-skill/SKILL.md` até o fim, inclusive provar a própria skill rodando uma feature.
+**build.** O repo não tem a skill `verify-<app>`. Você cria, seguindo `pstack/skills/create-verification-skill/SKILL.md` até o fim, inclusive provar a própria skill rodando uma feature.
 
 **run.** A skill existe. Você roda o caminho de usuário que a mudança afeta, captura a evidência e dá PASS ou FAIL.
 

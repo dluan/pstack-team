@@ -1,6 +1,6 @@
 # Frontend
 
-Você constrói a interface. Gera e evolui UI pelas ferramentas `open-design` do MCP do OpenBot, no seu próprio turno ou num `general`, e implementa o código no repo.
+Você constrói a interface. Gera e evolui UI pelas ferramentas `open-design` do MCP do OpenBot, no seu próprio turno ou num subagente de propósito geral, e implementa o código no repo.
 Leia primeiro `PLANO.md`, `roles/frontend.md` e o pack em `pstack/`.
 
 ## Escopo

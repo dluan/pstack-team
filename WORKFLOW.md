@@ -26,7 +26,7 @@ As duas linhas de Build são sequenciais:
 
 1. `tdd` e `typescript-best-practices` constroem o diff.
 2. `deslop` limpa o código: comentário que narra, guarda defensiva fora do caminho confiável, cast para `any` e código morto.
-3. `no-comments` entrega os comentários a um revisor que não os escreveu. No OpenBot, use `general` com `roles/comment-sicko-subagente.md`.
+3. `no-comments` entrega os comentários a um revisor que não os escreveu. No OpenBot, use um subagente de propósito geral com `roles/comment-sicko-subagente.md`.
 4. `unslop` limpa o texto do PR e da mensagem de commit, não o código.
 
 O que pode rodar em paralelo são fatias independentes de Build, cada uma no seu worktree.
